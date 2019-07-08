@@ -3,13 +3,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="static/css/main.css" />
     <title>아주 간단한 HTML 문서 예</title>
 </head>
 <body>
+
   <header>
     <div class = "d_logo">
-    <img src="/static/image/vidulgi.jpg" width="120px" height="120px">
+    <img src="static/image/vidulgi.jpg" width="120px" height="120px">
     </div>
 
     <div class = "d_searchBar">
@@ -18,7 +19,17 @@
         <input type="submit" value = "검색">
       </form>
     </div>
-
+    <div class = "d_login">
+{% if session['logged_in'] %}
+<form style="float:left;" class= "f_login" action="/login" method="get">
+    <input type="submit" name="login" value="로그인완료">
+  </form>
+{% else %}
+<form style="float:left;" class= "f_login" action="/login" method="get">
+    <input type="submit" name="login" action="login_page()" value="로그인">
+      </form>
+{% endif %}
+    </div>
   </header>
   <nav>
       <p>nav</p>
