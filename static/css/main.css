@@ -1,0 +1,71 @@
+
+body {
+      text-align: center;
+      color: #FFF;
+      width: 100%;
+  }
+
+
+  div#wapper {
+      width: 100%;
+      text-align: left;
+      min-height: 300px;
+      margin: 0 auto;
+  }
+
+  header, footer, nav, aside, section {
+      margin: 0.2%;
+      padding: 5px;
+  }
+
+  header {
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+    height: 130px;
+    width: 99%;
+
+  }
+  nav, section, aside {
+      float: left;
+  }
+  nav {
+      background-color: goldenrod;
+      width: 18%;
+  }
+  section {
+      float: left;
+      background-color: green;
+      width: 60%;
+  }
+  aside {
+      background-color: goldenrod;
+      width: 18%;
+  }
+  footer {
+      height: 50px;
+      background-color: blue;
+      position: relative;
+      clear: both;
+  }
+  article {
+      width: 90%;
+      margin: 20px;
+      background-color: #999;
+      left:50%;
+  }
+  .d_logo {
+    border: 1px solid gold;
+    float: left;
+    width:120px;
+    padding-left: 130px
+  }
+  .d_searchBar{
+    border: 1px solid gold;
+    float: left;
+  }
+  .d_item{
+
+
+
+  }

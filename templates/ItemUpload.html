@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang= "ko">
+  <head>
+    <meta charset="utf-8">
+    <title>상품 등록페이지</title>
+    <style>
+      header{
+        background-color: #1abc9b;
+      }
+      .headerLayout{
+        display: inline;
+        margin: 10px;
+        vertical-align: middle;
+      }
+      .itemInfoLayout{
+        float: left;
+      }
+      .itemUploadInfoLayout{
+        display: inline;
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <header>
+    <div>
+      <img class="headerLayout" src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="70px">
+      <input class="headerLayout" type="text"/>
+      <input class="headerLayout" type="button" name="btnSearch" value="검색"/>
+    </div>
+  </header>
+
+  <body>
+    <h2>새로운 상품 등록하기</h2>
+    <div>
+      <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width: 250px; height: auto;">
+      <form class="itemInfoLayout" action="/itemUpload" method="post">
+        <div>
+          <p class="itemUploadInfoLayout">상품명</p>
+          <input class="itemUploadInfoLayout"  name="itemName" type="text"/>
+        </div>
+        <div>
+          <p class="itemUploadInfoLayout">상품 가격</p>
+          <input class="itemUploadInfoLayout" name="itemPrice" type="number"/>
+        </div>
+        <div>
+          <p class="itemUploadInfoLayout">판매자 거주지역</p>
+          <input class="itemUploadInfoLayout"  name="itemLocation" type="text"/>
+        </div>
+        <div>
+          <p class="itemUploadInfoLayout">판매자 연락처</p>
+          <input class="itemUploadInfoLayout"  name="itemSeller" type="text"/>
+        </div>
+        <div>
+          <p class="itemUploadInfoLayout">상품 사진</p>
+          <input class="itemUploadInfoLayout"  name="itemPhoto" type="file"/>
+        </div>
+        <div>
+          <p class="itemUploadInfoLayout">상품 상세 설명</p>
+          <input class="itemUploadInfoLayout"  name="itemDetail" type="text"/>
+        </div>
+        <div>
+          <input class="itemUploadInfoLayout"  name="itemPrice" type="submit" value="상품 등록하기"/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
