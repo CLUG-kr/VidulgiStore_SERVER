@@ -20,7 +20,7 @@
 
   <header>
     <div>
-      <img class="headerLayout" src="bidulgi_logo.png" height="70px">
+      <img class="headerLayout" src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="70px">
       <input class="headerLayout" type="text"/>
       <input class="headerLayout" type="button" name="btnSearch" value="검색"/>
     </div>
@@ -36,8 +36,10 @@
         <p>판매자 연락처 : 010-null-null</p>
         <p>상품상태 : *****</p>
         <p>기타내용 : 개봉 후 작동 확인 한 새제품입니다</p>
-        <input type="checkbox">프리미엄(물품 상세검수) 서비스 이용<br/>
-        <input type="button" value="구매하기"/>
+        <form action="/main" method="post">
+          <input type="checkbox">프리미엄(물품 상세검수) 서비스 이용<br/>
+          <input type="submit" value="구매하기"/>
+        </form>
       </div>
     </div>
   </body>

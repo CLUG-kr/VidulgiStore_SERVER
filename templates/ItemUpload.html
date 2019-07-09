@@ -24,7 +24,7 @@
 
   <header>
     <div>
-      <img class="headerLayout" src="bidulgi_logo.png" height="70px">
+      <img class="headerLayout" src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="70px">
       <input class="headerLayout" type="text"/>
       <input class="headerLayout" type="button" name="btnSearch" value="검색"/>
     </div>
@@ -34,7 +34,7 @@
     <h2>새로운 상품 등록하기</h2>
     <div>
       <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width: 250px; height: auto;">
-      <div class="itemInfoLayout">
+      <form class="itemInfoLayout" action="/main" method="post">
         <div>
           <p class="itemUploadInfoLayout">상품명</p>
           <input class="itemUploadInfoLayout" type="text"/>
@@ -64,9 +64,9 @@
           <input class="itemUploadInfoLayout" type="text"/>
         </div>
         <div>
-          <input class="itemUploadInfoLayout" type="button" value="상품 등"/>
+          <input class="itemUploadInfoLayout" type="submit" value="상품 등록하기"/>
         </div>
-      </div>
+      </form>
     </div>
   </body>
 </html>

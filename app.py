@@ -9,10 +9,9 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 def splash_page():
     if request.method == 'POST':
         searchItem = request.form['itemSearch']
-        print(searchItem)
     return render_template('Splash.html')
 
-@app.route('/main')
+@app.route('/main', methods=['GET', 'POST'])
 def main_page():
         firebase.registerUser("1234", "1234")
         if session.get("logged_in"):
@@ -34,7 +33,13 @@ def login_page():
                 return "not login"
         return "test"
 
+@app.route('/itemDetail', methods=['GET', 'POST'])
+def itemDetail_page():
+    return render_template('ItemDetail.html')
 
+@app.route('/itemUpload', methods=['GET', 'POST'])
+def itemUpload_page():
+    return render_template('ItemUpload.html')
 
 if __name__ == '__main__':
     app.run()
