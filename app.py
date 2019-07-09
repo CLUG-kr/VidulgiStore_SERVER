@@ -1,13 +1,18 @@
-from flask import Flask
 from flask import Flask, url_for, render_template, request, redirect, session
 import firebase
-from user import User
+# from user import User
 
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
+@app.route('/', methods=['GET', 'POST'])
+def splash_page():
+    if request.method == 'POST':
+        searchItem = request.form['itemSearch']
+        print(searchItem)
+    return render_template('Splash.html')
 
-@app.route('/')
+@app.route('/main')
 def main_page():
         firebase.registerUser("1234", "1234")
         if session.get("logged_in"):
@@ -28,6 +33,7 @@ def login_page():
             else :
                 return "not login"
         return "test"
+
 
 
 if __name__ == '__main__':
