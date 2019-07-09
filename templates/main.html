@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/main.css" />
+    <title>아주 간단한 HTML 문서 예</title>
+</head>
+<body>
+
+  <header>
+    <div class = "d_logo">
+    <img src="static/image/vidulgi.jpg" width="120px" height="120px">
+    </div>
+
+    <div class = "d_searchBar">
+      <form style="float:left;" class= "searchBar" action="index.html" method="post">
+        <input type="text" name="searchValue" value="">
+        <input type="submit" value = "검색">
+      </form>
+    </div>
+    <div class = "d_login">
+{% if session['logged_in'] %}
+<form style="float:left;" class= "f_login" action="/login" method="get">
+    <input type="submit" name="login" value="로그인완료">
+  </form>
+{% else %}
+<form style="float:left;" class= "f_login" action="/login" method="get">
+    <input type="submit" name="login" action="login_page()" value="로그인">
+      </form>
+{% endif %}
+    </div>
+  </header>
+  <nav>
+      <p>nav</p>
+      <ul>
+          <li><a href="">link</a></li>
+          <li><a href="">link</a></li>
+          <li><a href="">link</a></li>
+      </ul>
+  </nav>
+  <section>
+      <article>
+          <p>article</p>
+      </article>
+  </section>
+  <!--사이드바-->
+  <aside>
+      <p>aside</p>
+  </aside>
+  <!--풋터-->
+  <footer>footer</footer>
+
+
+</body>
+</html>
