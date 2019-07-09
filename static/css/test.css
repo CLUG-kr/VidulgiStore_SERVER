@@ -1,0 +1,51 @@
+
+body {
+      text-align: center;
+      color: #FFF;
+      width: 100%;
+  }
+
+
+  div#wapper {
+      width: 100%;
+      text-align: left;
+      min-height: 300px;
+      margin: 0 auto;
+  }
+
+  header, footer, nav, aside, section {
+      border: 0.1% solid #999;
+      margin: 0.2%;
+      padding: 5px;
+  }
+  header {
+      height: 120px;
+      background-color: red;
+  }
+  nav, section, aside {
+      float: left;
+      height: 600px;
+  }
+  nav {
+      background-color: goldenrod;
+      width: 18%;
+  }
+  section {
+      background-color: green;
+      width: 60%;
+  }
+  aside {
+      background-color: goldenrod;
+      width: 18%;
+  }
+  footer {
+      height: 50px;
+      background-color: blue;
+      position: relatiev;
+      clear: both;
+  }
+  article {
+      width: 90%;
+      margin: 20px;
+      background-color: #999;
+  }
