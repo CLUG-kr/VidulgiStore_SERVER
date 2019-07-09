@@ -68,5 +68,3 @@ def itemUploadCom_page():
         return redirect(url_for('main_page'), code=307)
 if __name__ == '__main__':
     app.run()
-
-

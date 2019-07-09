@@ -57,5 +57,3 @@ def testFirebase():
 
     doc_ref = db.collection(u'Users').document(str("abc")).get()
     print(doc_ref.to_dict())
-
-

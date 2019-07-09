@@ -1,8 +1,10 @@
+
 body {
       text-align: center;
       color: #FFF;
       width: 100%;
   }
+
 
   div#wapper {
       width: 100%;
@@ -12,6 +14,7 @@ body {
   }
 
   header, footer, nav, aside, section {
+      border: 0.1% solid #999;
       margin: 0.2%;
       padding: 5px;
   }
@@ -22,16 +25,17 @@ body {
     font-size: 30px;
     height: 130px;
     width: 99%;
+
   }
   nav, section, aside {
       float: left;
+      height: 600px;
   }
   nav {
       background-color: goldenrod;
       width: 18%;
   }
   section {
-      float: left;
       background-color: green;
       width: 60%;
   }
@@ -42,14 +46,13 @@ body {
   footer {
       height: 50px;
       background-color: blue;
-      position: relative;
+      position: relatiev;
       clear: both;
   }
   article {
       width: 90%;
       margin: 20px;
       background-color: #999;
-      left:50%;
   }
   .d_logo {
     border: 1px solid gold;
@@ -60,6 +63,4 @@ body {
   .d_searchBar{
     border: 1px solid gold;
     float: left;
-  }
-  .d_item{
   }
