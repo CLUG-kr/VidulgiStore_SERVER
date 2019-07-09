@@ -57,12 +57,15 @@ def itemUploadCom_page():
         itemPrice = request.form['itemPrice']
         itemLocation = request.form['itemLocation']
         itemSeller = request.form['itemSeller']
-        itemPhoto = request.files['itemPhoto'] if request.files.get('itemPhoto') else None
+        itemPhoto = request.files['itemPhoto']
         itemDetail = request.form['itemDetail']
-        print("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemPhoto)
+
         firebase.uploadItem("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
-        itemPhoto.save(secure_filename(itemPhoto.filename))
-        """firestorage.uploadFile(itemPhoto,'upload/'+itemPhoto.filename)"""
-        return redirect(url_for('main_page'), code=307)
+
+        itemPhoto.save(secure_filename('1.png'))
+
+        firestorage.uploadFile('1.png')
+
+        return redirect(url_for('splash_page'), code=307)
 if __name__ == '__main__':
     app.run()

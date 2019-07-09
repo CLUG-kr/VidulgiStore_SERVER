@@ -3,13 +3,11 @@ import datetime
 from firebase_admin import credentials, firestore, storage
 
 
-def uploadFile(url, name):
+def uploadFile(name):
     db = firestore.client()
     bucket = storage.bucket("vidulgi.appspot.com")
     blob = bucket.blob(name)
-    outfile= url
-    with open(outfile, 'rb') as my_file:
-        blob.upload_from_file(my_file)
+    blob.upload_from_filename(name)
 
 def downloadImage(img):
     db = firestore.client()
