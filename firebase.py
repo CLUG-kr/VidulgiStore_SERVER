@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from firebase_admin import credentials
 from firebase_admin import firestore
 
+
 cred = credentials.Certificate("vidulgi-firebase-adminsdk-yxed3-b7f4229719.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
@@ -24,6 +25,11 @@ def getUser(id,pw):
         return check_password_hash(result["pw"],pw)
     return False
 
+def testGet():
+    result = db.collection(u'Users').get()
+    for x in result:
+        print(x.to_dict())
+
 def uploadItem(itemId, name, price, location, seller, detail):
     doc_ref = db.collection(u'Items').document(itemId)
     doc_ref.update({
@@ -33,6 +39,7 @@ def uploadItem(itemId, name, price, location, seller, detail):
         u'price': price,
         u'subtitle': detail,
     })
+
 
 def testFirebase():
     doc_ref = db.collection(u'Users').document(u'alovelace')
@@ -45,9 +52,8 @@ def testFirebase():
     doc_ref = db.collection(u'Users').document(str("abc"))
     doc_ref.update({
         u't1': str("1235"),
+
     })
 
     doc_ref = db.collection(u'Users').document(str("abc")).get()
     print(doc_ref.to_dict())
-
-
