@@ -39,7 +39,18 @@ def itemDetail_page():
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():
-    return render_template('ItemUpload.html')
+    if request.method == 'GET':
+        return render_template('ItemUpload.html')
+    else:
+        itemName = request.form['itemName']
+        itemPrice = request.form['itemPrice']
+        itemLocation = request.form['itemLocation']
+        itemSeller = request.form['itemSeller']
+        itemPhoto = request.form['itemPhoto']
+        itemDetail = request.form['itemDetail']
+        print("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
+        firebase.uploadItem("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
+        return render_template('ItemUpload.html')
 
 if __name__ == '__main__':
     app.run()

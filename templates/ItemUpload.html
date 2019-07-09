@@ -34,37 +34,33 @@
     <h2>새로운 상품 등록하기</h2>
     <div>
       <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width: 250px; height: auto;">
-      <form class="itemInfoLayout" action="/main" method="post">
+      <form class="itemInfoLayout" action="/itemUpload" method="post">
         <div>
           <p class="itemUploadInfoLayout">상품명</p>
-          <input class="itemUploadInfoLayout" type="text"/>
+          <input class="itemUploadInfoLayout"  name="itemName" type="text"/>
         </div>
         <div>
           <p class="itemUploadInfoLayout">상품 가격</p>
-          <input class="itemUploadInfoLayout" type="number"/>
+          <input class="itemUploadInfoLayout" name="itemPrice" type="number"/>
         </div>
         <div>
           <p class="itemUploadInfoLayout">판매자 거주지역</p>
-          <input class="itemUploadInfoLayout" type="text"/>
+          <input class="itemUploadInfoLayout"  name="itemLocation" type="text"/>
         </div>
         <div>
           <p class="itemUploadInfoLayout">판매자 연락처</p>
-          <input class="itemUploadInfoLayout" type="text"/>
+          <input class="itemUploadInfoLayout"  name="itemSeller" type="text"/>
         </div>
         <div>
           <p class="itemUploadInfoLayout">상품 사진</p>
-          <input class="itemUploadInfoLayout" type="file"/>
-        </div>
-        <div>
-          <p class="itemUploadInfoLayout">상품 상태</p>
-          <input class="itemUploadInfoLayout" type="text"/>
+          <input class="itemUploadInfoLayout"  name="itemPhoto" type="file"/>
         </div>
         <div>
           <p class="itemUploadInfoLayout">상품 상세 설명</p>
-          <input class="itemUploadInfoLayout" type="text"/>
+          <input class="itemUploadInfoLayout"  name="itemDetail" type="text"/>
         </div>
         <div>
-          <input class="itemUploadInfoLayout" type="submit" value="상품 등록하기"/>
+          <input class="itemUploadInfoLayout"  name="itemPrice" type="submit" value="상품 등록하기"/>
         </div>
       </form>
     </div>
