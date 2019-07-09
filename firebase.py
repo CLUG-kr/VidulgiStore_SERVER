@@ -31,8 +31,8 @@ def testGet():
         print(x.to_dict())
 
 def uploadItem(itemId, name, price, location, seller, detail):
-    doc_ref = db.collection(u'Items').document(itemId)
-    doc_ref.update({
+    doc_ref = db.collection(u'Items').document()
+    doc_ref.set({
         u'author': seller,
         u'location': location,
         u'name': name,

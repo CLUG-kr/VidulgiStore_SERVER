@@ -1,4 +1,6 @@
 from flask import Flask, url_for, render_template, request, redirect, session
+from werkzeug.utils import secure_filename
+
 import firebase
 from user import User
 import firestorage
@@ -49,17 +51,21 @@ def itemDetail_page():
 def itemUpload_page():
     if request.method == 'GET':
         return render_template('ItemUpload.html')
-    else:
+
+@app.route('/itemUploadCom', methods=['GET', 'POST'])
+def itemUploadCom_page():
+    if request.method == 'POST':
         itemName = request.form['itemName']
         itemPrice = request.form['itemPrice']
         itemLocation = request.form['itemLocation']
         itemSeller = request.form['itemSeller']
-        itemPhoto = request.form['itemPhoto']
+        itemPhoto = request.files['itemPhoto'] if request.files.get('itemPhoto') else None
         itemDetail = request.form['itemDetail']
-        print("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
+        print("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemPhoto)
         firebase.uploadItem("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
-        return render_template('ItemUpload.html')
-
+        itemPhoto.save(secure_filename(itemPhoto.filename))
+        """firestorage.uploadFile(itemPhoto,'upload/'+itemPhoto.filename)"""
+        return redirect(url_for('main_page'), code=307)
 if __name__ == '__main__':
     app.run()
 
