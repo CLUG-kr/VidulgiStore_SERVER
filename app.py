@@ -8,23 +8,21 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
-    firebase.testGet()
-    if request.method == 'POST':
-        searchItem = request.form['itemSearch']
-    return render_template('Splash.html')
-
-@app.route('/main', methods=['GET', 'POST'])
-def main_page():
-    items = [Item("1","1","1","1").toJSON(),Item("1","1","1","1").toJSON(),Item("1","1","1","1").toJSON(),Item("1","1","1","1").toJSON()]
     if request.method == 'GET':
         return render_template('login.html')
     else:
         firebase.registerUser("1234", "1234")
         if session.get("logged_in"):
-            return render_template("main.html",  session_value = True, items = items)
+            return render_template("Splash.html",  session_value = True)
         else:
-            return render_template('main.html', session_value = False)
-    return "test"
+            return render_template('Splash.html', session_value = False)
+
+@app.route('/main', methods=['GET', 'POST'])
+def main_page():
+    searchItem = request.form['itemSearch']
+    items = firebase.itemSearch(searchItem)
+    print(items)
+    return render_template("main.html")
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -36,7 +34,7 @@ def login_page():
             passw = request.form['input_pw']
             if firebase.getUser(name,passw):
                 session['logged_in'] = True
-                return redirect(url_for('main_page'), code=307)
+                return redirect(url_for('splash_page'), code=307)
             else :
                 return "not login"
         return "test"

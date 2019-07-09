@@ -25,10 +25,15 @@ def getUser(id,pw):
         return check_password_hash(result["pw"],pw)
     return False
 
-def testGet():
-    result = db.collection(u'Users').get()
+def itemSearch(searchInput):
+    resultList = []
+
+    result = db.collection(u'Items').get()
     for x in result:
-        print(x.to_dict())
+        currentData = x.to_dict()
+        if currentData.get('name') == searchInput:
+            resultList.append(currentData)
+    return resultList
 
 def uploadItem(itemId, name, price, location, seller, detail):
     doc_ref = db.collection(u'Items').document(itemId)
