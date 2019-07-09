@@ -1,6 +1,6 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 import firebase
-# from user import User
+from user import User
 
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
