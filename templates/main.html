@@ -19,6 +19,9 @@
         <input type="submit" value = "검색">
       </form>
     </div>
+      <form style="float:left;" action="itemUpload.html" method="post">
+        <input type="submit" value = "아이템 업로드">
+      </form>
   </header>
   <nav>
       <p>nav</p>
@@ -34,10 +37,10 @@
   <div style=" position:relative;left:50%; transform:translateX(-50%);">
       {% for item in items %}
       <div class="d_item" style="background-color: #999999;  width: 100px; margin: 20px; float: left;">
-          <p>{{ item.name}}</p>
-        <img src={{item.image }}>
-        <p>{{ item.price}}</p>
-        <p>{{ item.author}}</p>
+          <p>name:{{item.name}}</p>
+        <img src={{item.picture }} width="120px" height="120px">
+        <p>price:{{ item.price}}</p>
+        <p>author:{{item.author}}</p>
       </div>
 
     {% endfor %}

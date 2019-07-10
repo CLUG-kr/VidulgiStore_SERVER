@@ -1,3 +1,5 @@
+import socket
+
 from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 
@@ -11,7 +13,7 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('Splash.html')
     else:
         firebase.registerUser("1234", "1234")
         if session.get("logged_in"):
@@ -22,9 +24,12 @@ def splash_page():
 @app.route('/main', methods=['GET', 'POST'])
 def main_page():
     searchItem = request.form['itemSearch']
-    items = firebase.itemSearch(searchItem)
-    print(items)
-    return render_template("main.html")
+    if len(searchItem) != 0:
+        items = firebase.itemSearch(searchItem)
+        print(items)
+        return render_template("main.html", items = items)
+    else :
+        return render_template("main.html", items=[])
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -60,12 +65,15 @@ def itemUploadCom_page():
         itemPhoto = request.files['itemPhoto']
         itemDetail = request.form['itemDetail']
 
-        firebase.uploadItem("1", itemName, itemPrice, itemLocation, itemSeller, itemDetail)
 
-        itemPhoto.save(secure_filename('1.png'))
 
-        firestorage.uploadFile('1.png')
+        itemPhoto.save(secure_filename(itemSeller+itemName+'.png'))
+
+        firestorage.uploadFile(itemSeller+itemName+'.png')
+        firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemSeller+itemName+'.png')
 
         return redirect(url_for('splash_page'), code=307)
 if __name__ == '__main__':
+    IP = str(socket.gethostbyname(socket.gethostname()))
+    app.run(host=IP, port=5010, debug=True)
     app.run()

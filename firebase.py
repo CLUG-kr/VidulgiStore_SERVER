@@ -3,6 +3,7 @@ from user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from firebase_admin import credentials
 from firebase_admin import firestore
+import firestorage
 
 
 cred = credentials.Certificate("vidulgi-firebase-adminsdk-yxed3-b7f4229719.json")
@@ -27,15 +28,16 @@ def getUser(id,pw):
 
 def itemSearch(searchInput):
     resultList = []
-
     result = db.collection(u'Items').get()
     for x in result:
         currentData = x.to_dict()
         if currentData.get('name') == searchInput:
+            currentData['picture'] = firestorage.downloadImage(currentData.get('picture'))
+            print(currentData['picture'])
             resultList.append(currentData)
     return resultList
 
-def uploadItem(itemId, name, price, location, seller, detail):
+def uploadItem(name, price, location, seller, detail,picture):
     doc_ref = db.collection(u'Items').document()
     doc_ref.set({
         u'author': seller,
@@ -43,6 +45,7 @@ def uploadItem(itemId, name, price, location, seller, detail):
         u'name': name,
         u'price': price,
         u'subtitle': detail,
+        u'picture': picture
     })
 
 
