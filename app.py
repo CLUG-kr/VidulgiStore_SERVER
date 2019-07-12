@@ -52,6 +52,8 @@ def itemDetail_page():
 def itemUpload_page():
     if request.method == 'GET':
         return render_template('ItemUpload.html')
+    else :
+        return render_template('ItemUpload.html')
 
 @app.route('/itemUploadCom', methods=['GET', 'POST'])
 def itemUploadCom_page():
@@ -64,7 +66,6 @@ def itemUploadCom_page():
         itemDetail = request.form['itemDetail']
 
         itemPhoto.save(secure_filename(itemSeller+itemName+'.png'))
-
         firestorage.uploadFile(itemSeller+itemName+'.png')
         firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemSeller+itemName+'.png')
 

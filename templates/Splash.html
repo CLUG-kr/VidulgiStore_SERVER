@@ -3,35 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>비둘기장터</title>
-    <style>
-      @font-face{
-        font-family: 'BaminHanna';
-        src: url(static/fonts/bamin_hanna.ttf) format('truetype');
-      }
-
-      body{
-        background-color: #2a3742;
-      }
-
-      .searchInput{
-        background: #ffffff;
-        border: 0;
-        height: 30px;
-        width: 240px;
-      }
-
-      .searchButton{
-        background: #3d4c71;
-        border: 0;
-        height: 35px;
-        color: #ffffff;
-        width: 60px;
-      }
-
-      div{
-       border:1px solid gold;
-      }
-    </style>
+       <link rel="stylesheet" href="static/css/main.css" />
   </head>
 
   <header>
@@ -48,13 +20,13 @@
     </div>
   </header>
 
-  <body>
-    <center>
+  <body style="float: bottom">
+    <center >
       <div>
-        <div>
-          <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
-        </div>
-        <div>
+          <div style="float:left">
+              <img style="display: inline;float:left" src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
+          </div>
+        <div style="display: inline;float:left">
           <p style="color: #ffffff; font-family: BaminHanna; font-size: 20px;">안전한 전자제품 중고거래</p>
           <p style="color: #ffffff; font-family: BaminHanna; font-size: 40px;">비둘기장터</p>
         </div>
