@@ -65,8 +65,6 @@ def itemUploadCom_page():
         itemPhoto = request.files['itemPhoto']
         itemDetail = request.form['itemDetail']
 
-
-
         itemPhoto.save(secure_filename(itemSeller+itemName+'.png'))
 
         firestorage.uploadFile(itemSeller+itemName+'.png')
