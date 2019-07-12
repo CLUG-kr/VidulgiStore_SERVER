@@ -5,15 +5,23 @@
     <title>비둘기장터</title>
     <style>
       body{
-        background-color: #3e4e74;
+        background-color: #2a3742;
       }
 
       .searchInput{
-        border: 0;
-        outline: 0;
         background: #ffffff;
-        border-bottom: 2px solid black;
-    }
+        border: 0;
+        height: 30px;
+        width: 240px;
+      }
+
+      .searchButton{
+        background: #3d4c71;
+        border: 0;
+        height: 35px;
+        color: #ffffff;
+        width: 60px;
+      }
     </style>
   </head>
 
@@ -32,12 +40,11 @@
   </header>
 
   <body><center>
-   <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
-    <h2>비둘기장터</h2>
-    <h3>지금 사고 싶은 것은?</h3>
+    <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
+    <h2 style="color: #ffffff">비둘기장터</h2>
     <form action="/main" method="post">
-      <input class="searchInput" type="text" name="itemSearch"/>
-      <input type="submit" name="btnSearch" value="검색"/>
+      <input class="searchInput" type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
+      <input class="searchButton" type="submit" name="btnSearch" value="검색"/>
     </form>
   </body>
 </html>
