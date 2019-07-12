@@ -27,6 +27,7 @@
         color: #ffffff;
         width: 60px;
       }
+      
       div{
        border:1px solid gold;
       }
@@ -49,20 +50,20 @@
 
   <body>
     <center>
-      <div style="float:bottom">
-          <div style="float:left">
-              <img style="display: inline;float:left" src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
-          </div>
-        <div style="display: inline;float:left">
+      <div>
+        <div>
+          <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
+        </div>
+        <div>
           <p style="color: #ffffff; font-family: BaminHanna; font-size: 20px;">안전한 전자제품 중고거래</p>
           <p style="color: #ffffff; font-family: BaminHanna; font-size: 40px;">비둘기장터</p>
         </div>
       </div>
-      <div style="float: bottom">
+      <div>
         <form action="/main" method="post">
-        <input class="searchInput" type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
-        <input class="searchButton" type="submit" name="btnSearch" value="검색"/>
-      </form>
+          <input class="searchInput" type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
+          <input class="searchButton" type="submit" name="btnSearch" value="검색"/>
+        </form>
       </div>
     </center>
   </body>
