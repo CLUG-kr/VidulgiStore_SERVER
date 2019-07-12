@@ -5,8 +5,15 @@
     <title>비둘기장터</title>
     <style>
       body{
-        background-color: #1abc9b;
+        background-color: #3e4e74;
       }
+
+      .searchInput{
+        border: 0;
+        outline: 0;
+        background: #ffffff;
+        border-bottom: 2px solid black;
+    }
     </style>
   </head>
 
@@ -29,7 +36,7 @@
     <h2>비둘기장터</h2>
     <h3>지금 사고 싶은 것은?</h3>
     <form action="/main" method="post">
-      <input type="text" name="itemSearch"/>
+      <input class="searchInput" type="text" name="itemSearch"/>
       <input type="submit" name="btnSearch" value="검색"/>
     </form>
   </body>

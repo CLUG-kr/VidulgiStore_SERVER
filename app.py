@@ -1,12 +1,10 @@
-import socket
-
 from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 
+import socket
 import firebase
-from user import User
 import firestorage
-from item import Item
+
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
@@ -71,7 +69,8 @@ def itemUploadCom_page():
         firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemSeller+itemName+'.png')
 
         return redirect(url_for('splash_page'), code=307)
+
 if __name__ == '__main__':
     IP = str(socket.gethostbyname(socket.gethostname()))
-    app.run(host=IP, port=5010, debug=True)
+    app.run(host=IP, port=5010, debug=False)
     app.run()
