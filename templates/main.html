@@ -9,31 +9,36 @@
 <body>
 
   <header>
-    <div class = "d_logo">
-    <img src="static/image/vidulgi.jpg" width="120px" height="120px">
+      <div class="d_menu" style="float: left;">
+          <span style="font-size:50px;cursor:pointer;float: left;" onclick="openNav()">&#9776;</span>
+      </div>
+    <div class = "d_logo" style="float:left">
+
+    <img src="static/image/vidulgi.jpg" style="float:left" width="120px" height="120px">
     </div>
 
     <div class = "d_searchBar">
-      <form style="float:left;" class= "searchBar" action="index.html" method="post">
+      <form style="float:left;" class= "searchBar" action="/main" method="post">
         <input type="text" name="searchValue" value="">
         <input type="submit" value = "검색">
       </form>
     </div>
-      <form style="float:left;" action="itemUpload.html" method="post">
+      <form style="float:left;" action="/itemUpload" method="post">
         <input type="submit" value = "아이템 업로드">
       </form>
+
+
   </header>
-  <nav>
-      <p>nav</p>
-      <ul>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-          <li><a href="">link</a></li>
-      </ul>
-  </nav>
-  <section>
 
+ <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
+  <section style="height:1000px">
   <div style=" position:relative;left:50%; transform:translateX(-50%);">
       {% for item in items %}
       <div class="d_item" style="background-color: #999999;  width: 100px; margin: 20px; float: left;">
@@ -48,12 +53,17 @@
 
   </section>
   <!--사이드바-->
-  <aside>
-      <p>aside</p>
-  </aside>
   <!--풋터-->
   <footer>footer</footer>
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
 
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 
 </body>
 </html>
