@@ -118,17 +118,3 @@ body
 }
 
 
-      .searchInput{
-        background: #ffffff;
-        border: 0;
-        height: 30px;
-        width: 240px;
-      }
-
-      .searchButton{
-        background: #3d4c71;
-        border: 0;
-        height: 35px;
-        color: #ffffff;
-        width: 60px;
-      }
