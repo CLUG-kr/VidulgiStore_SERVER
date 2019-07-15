@@ -9,6 +9,7 @@
         src: url(static/fonts/bamin_hanna.ttf) format('truetype');
       }
       header{
+        background-color: #003742;
         height: 100px;
       }
       body{
@@ -18,15 +19,21 @@
         background: #ffffff;
         border: 0;
         height: 30px;
-        width: 240px;
+          float: left;
+          border: 1px solid gold;
       }
       .searchButton{
         background: #3d4c71;
         border: 0;
         height: 35px;
         color: #ffffff;
-        width: 60px;
+          float: left;
+          border: 1px solid gold;
       }
+        .top, .bottom{
+            height : 150px;
+        }
+
     </style>
   </head>
 
@@ -45,16 +52,12 @@
   </header>
 
   <body>
-    <center>
-      <div>
-        <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
-        <p style="color: #ffffff; font-family: BaminHanna; font-size: 20px;">안전한 전자제품 중고거래</p>
-        <p style="color: #ffffff; font-family: BaminHanna; font-size: 40px;">비둘기장터</p>
-      </div>
-      <form action="/main" method="post">
-        <input class="searchInput" type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
-        <input class="searchButton" type="submit" name="btnSearch" value="검색"/>
-      </form>
-    </center>
+    <img src="{{ url_for('static', filename='image/vidulgi.jpg') }}" height="150px">
+    <p style="color: #ffffff; font-family: BaminHanna; font-size: 20px;">안전한 전자제품 중고거래</p>
+    <p style="color: #ffffff; font-family: BaminHanna; font-size: 40px;">비둘기장터</p>
+    <form style="border: 1px solid gold;" action="/main" method="post">
+      <input type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
+      <input type="submit" name="btnSearch" value="검색"/>
+    </form>
   </body>
 </html>
