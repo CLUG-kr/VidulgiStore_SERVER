@@ -22,7 +22,7 @@
       }
       .searchButton{
         border: 0;
-        height: 50px;
+        height: 52.5px;
       }
       .top, .bottom{
         height : 150px;
@@ -49,7 +49,7 @@
       <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="200px">
       <form action="/main" method="post">
         <input class="searchInput" type="text" name="itemSearch" placeholder=" 지금 사고 싶은 것은?"/>
-        <input style="width: 50px;" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
+        <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
       </form>
     </center>
   </body>
