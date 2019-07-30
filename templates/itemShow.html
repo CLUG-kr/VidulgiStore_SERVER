@@ -8,7 +8,7 @@
         src: url(static/fonts/bamin_hanna.ttf) format('truetype');
       }
         .subtitle{
-            font-size:1.5em;
+            font-size:1.7em;
             color:black;
         }
         section{
@@ -20,7 +20,7 @@
 
 <header style="background-color: #2a3742;">
 
-    <div class="d_menu" style="position:relative;float: left;up:50%;transform:translateY(100%);">
+    <div class="d_menu" style="padding-left:3%;position:relative;float: left;up:50%;transform:translateY(100%);">
       <span style="font-size:30px;cursor:pointer;float: left;" onclick="openNav()">&#9776;</span>
     </div>
 
@@ -28,13 +28,13 @@
       <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="100px">
     </div>
 
-    <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(200%);">
+    <div class = "d_searchBar" style="position:relative;">
       <form style="float: left;" class="searchBar" action="/main" method="post">
         <input class="searchInput" type="text" name="searchValue"/>
         <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
       </form>
         <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
-        <input class="uploadButton" type="submit" value = "판매하기">
+        <input class="uploadButton" type="submit" value = "₩판매하기">
       </form>
     </div>
 
@@ -50,20 +50,20 @@
   <a href="#">Contact</a>
 </div>
 
-  <section style="border: 1px solid gold;height:1000px; padding-left:50px">
+  <section style="border: 1px solid gold;height:1000px; padding-left:3%">
       <div id="itemName" style="border: 1px solid gold;">
-          <p style="font-size: 2.0em">testtest</p>
+          <p style="font-size: 2.0em; color:black">testtest</p>
       </div>
       <div id="itemContents" style="border: 1px solid gold;">
 
-          <div id="itemPhoto" style="float: left;border: 1px solid gold;">
-            <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width: 700px; height: 450px;">
+          <div id="itemPhoto" style="width:45%; height:40%;float: left;border: 1px solid gold;">
+            <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width:99%; height:99%">
           </div>
-          <div id="itemSubstance" style="margin-left: 50px;float: left;border: 1px solid gold; width:500px; height:454px">
+          <div id="itemSubstance" style="margin-left: 50px;float: left;border: 1px solid gold; width:45%; height:40%">
               <p class="subtitle">₩ </p>
-              <p>판매자: </p>
-              <p>판매 지역: </p>
-              <p>상품 설명: </p>
+              <p class="subtitle">판매자: </p>
+              <p class="subtitle">판매 지역: </p>
+              <p class="subtitle">상품 설명: </p>
           </div>
 
       </div>
@@ -71,9 +71,6 @@
 
       </div>
   </section>
-  <!--사이드바-->
-  <!--풋터-->
-  <footer>footer</footer>
   <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
