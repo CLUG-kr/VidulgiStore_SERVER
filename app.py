@@ -1,5 +1,6 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
+from sendNoti import send_fcm
 
 import socket
 import firebase
@@ -7,7 +8,6 @@ import firestorage
 
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-
 
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
@@ -74,8 +74,10 @@ def successPay_page():
     itemName = request.form['itemName']
     itemAuthor = request.form['itemAuthor']
     getItem = firebase.getItem(itemName, itemAuthor)
-
+    send_fcm(buyerName, itemName)
     return render_template('paySuccess.html',seller= itemAuthor, buyer = buyerName, buyItem = itemName)
+
+
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():
