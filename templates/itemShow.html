@@ -57,7 +57,7 @@
       <div id="itemContents" style="border: 1px solid gold;">
 
           <div id="itemPhoto" style="width:45%; height:40%;float: left;">
-            <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width:99%; height:99%">
+            <img class="itemInfoLayout" style="width:99%; height:99%" src={{ item.picture }} >
           </div>
           <div id="itemSubstance" style="margin-left: 50px;float: left;width:45%; height:40%">
               <div>
@@ -65,9 +65,9 @@
                   <div class="subtitle" style=" font-size: 2.0em;">{{ itemPrice }}</div>
               </div>
 
-              <div class="subtitle">판매자: </div>
-              <div class="subtitle">판매 지역: </div>
-              <div class="subtitle">상품 설명: </div>
+              <div class="subtitle">판매자: {{ item.author }}</div>
+              <div class="subtitle">판매 지역: {{ item.location }}</div>
+              <div class="subtitle">상품 설명: {{ item.subtitle }}</div>
           </div>
 
       </div>

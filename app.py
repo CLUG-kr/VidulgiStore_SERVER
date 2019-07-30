@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 user = "123"
-itemName = "123"
+item = "123"
 
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
@@ -32,9 +32,19 @@ def main_page():
     else :
         return render_template("main.html", items=[])
 
-@app.route('/'+user+itemName, methods=['GET', 'POST'])
+@app.route('/showItem', methods=['GET', 'POST'])
 def itemShow_page():
-    return "test";
+    getItem = firebase.getItem(item, user)
+
+    return render_template('itemShow.html', item= getItem)
+
+@app.route('/showItemRedirecting', methods=['GET', 'POST'])
+def itemRedirecting_page():
+    global item
+    global user
+    item = request.form['itemName']
+    user = request.form['itemAuthor']
+    return redirect(url_for('itemShow_page'), code=307)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():

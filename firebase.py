@@ -37,6 +37,17 @@ def itemSearch(searchInput):
             resultList.append(currentData)
     return resultList
 
+def getItem(item, author):
+    resultList = []
+    result = db.collection(u'Items').get()
+    for x in result:
+        currentData = x.to_dict()
+        if item == currentData.get('name') and author == currentData.get('author'):
+            currentData['picture'] = firestorage.downloadImage(currentData.get('picture'))
+            print(currentData['picture'])
+            resultList.append(currentData)
+    return resultList
+
 def uploadItem(name, price, location, seller, detail,picture):
     doc_ref = db.collection(u'Items').document()
     doc_ref.set({

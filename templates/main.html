@@ -41,9 +41,10 @@
   <div style="position:relative;left:50%; transform:translateX(-50%);">
       {% for item in items %}
       <div class="d_item" style="background-color: #ffffff;  width: 400px; height: 300px; margin: 20px; float: left;">
-       <form style="position: relative;width: 100%;height: 100%;" action="/{{item.author}}/{{item.name}}" method="post">
+       <form style="position: relative;width: 100%;height: 100%;" action="/showItemRedirecting" method="post">
          <input style="position: relative; width: 100%;height: 100%;" src="{{item.picture }}" TYPE="IMAGE">
-           <input name={{item.name}}>
+           <input style="display:none" name=itemName value = {{ item.name }}>
+           <input style="display:none" name=itemAuthor value = {{ item.author }}>
       </form>
         <div class="d_item_info">
           <center style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
