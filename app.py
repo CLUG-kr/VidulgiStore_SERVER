@@ -22,11 +22,14 @@ def splash_page():
 
 @app.route('/main', methods=['GET', 'POST'])
 def main_page():
-    searchItem = request.form['itemSearch']
+    if 'itemSearch' in request.form:
+        searchItem = request.form['itemSearch']
+    else :
+        searchItem = "아이패드"
     if len(searchItem) != 0:
         items = firebase.itemSearch(searchItem)
         print(items)
-        return render_template("main.html", items = items)
+        return render_template("main.html", items = items, searchItem = searchItem)
     else :
         return render_template("main.html", items=[])
 
@@ -72,7 +75,7 @@ def successPay_page():
     itemAuthor = request.form['itemAuthor']
     getItem = firebase.getItem(itemName, itemAuthor)
 
-    return buyerName+buyerNumber+itemName+itemAuthor
+    return render_template('paySuccess.html',seller= itemAuthor, buyer = buyerName, buyItem = itemName)
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():
