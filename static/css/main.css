@@ -105,12 +105,10 @@ body
 }
 
     .searchButton{
-      border: 0;
       height: 50px;
     }
      .searchInput{
       background: #ffffff;
-      border: 0;
       height: 50px;
       width: 750px;
     }
@@ -127,5 +125,4 @@ body
     }
 
     .d_item_info div{
-        width:auto
     }

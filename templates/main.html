@@ -15,16 +15,16 @@
     </div>
 
     <div class="d_logo" style="position:relative;bottom:50%;transform:translateY(100%);">
-      <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="100px">
+      <img src="/static/image/splash_logo.png" height="100px">
     </div>
 
     <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(175%);">
       <form style="float: left;" class="searchBar" action="/main" method="post">
         <input class="searchInput" type="text" name="searchValue"/>
-        <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
+        <input class="searchButton" TYPE="IMAGE" src="/static/image/splash_btn_search.png" name="Submit" value="Submit"  align="absmiddle">
       </form>
       <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
-        <input class="uploadButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/sell.png') }}">
+         <input style="margin-left:10px;width:100px;height:50px" class="uploadButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/sell.png') }}">
       </form>
     </div>
   </header>
@@ -39,17 +39,18 @@
 
 <section style="height:1000px">
   <div style="position:relative;left:50%; transform:translateX(-50%);">
-      {% for item in items %}
+
       <div class="d_item" style="background-color: #ffffff;  width: 400px; height: 300px; margin: 20px; float: left;">
+        <img style="position: relative; width: 225px;height: 300px;" src="https://storage.googleapis.com/vidulgi.appspot.com/124512345.png?Expires=1564509654&amp;GoogleAccessId=firebase-adminsdk-yxed3%40vidulgi.iam.gserviceaccount.com&amp;Signature=JFzVVR4NejflydPd913J%2BiaTsU64Y5JLHcdpnADDCeUKqi9IVWKHzjhJVmYHt1gUPSzP5j3sLNxTXoMX290dbl6M8%2FIfQi%2B%2BrAaTaZO9K8442lR%2BdtrCO4N%2FF%2BAzHinaXU0Z1qp8vHcr4CNbxDLbh8r5AlOoQ%2Bs1zToKPatvl8Cm7iZizzgKxyiBNxl5WkdeYjOELBGWnLvQayPDvAeLOq6mnd0VWmGONAGfacL3%2Bof%2BUFI4aylnqdM%2FardR6l%2FchELb3RlDNU5FFwCzLrtR6%2FQW2k%2BnCinA%2Bj55PmRr%2F3HfrJz9t2agDauJ8LWhR9A%2BwXpXz4QxoqAOKITiQkGYnw%3D%3D">
         <div class="d_item_info">
           <center style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
-            <div>name:{{item.name}}</div>
-            <div>price:{{item.price}}</div>
-            <div>author:{{item.author}}</div>
+            <div>name:아이패드</div>
+            <div>price:5000</div>
+            <div>author:CECOM</div>
           </center>
         </div>
       </div>
-    {% endfor %}
+
   </div>
 </section>
   <!--사이드바-->
@@ -63,7 +64,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-function
 </script>
 
 </body>
