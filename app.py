@@ -8,8 +8,6 @@ import firestorage
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-user = "123"
-item = "123"
 
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
@@ -34,17 +32,11 @@ def main_page():
 
 @app.route('/showItem', methods=['GET', 'POST'])
 def itemShow_page():
-    getItem = firebase.getItem(item, user)
-
-    return render_template('itemShow.html', item= getItem)
-
-@app.route('/showItemRedirecting', methods=['GET', 'POST'])
-def itemRedirecting_page():
-    global item
-    global user
     item = request.form['itemName']
     user = request.form['itemAuthor']
-    return redirect(url_for('itemShow_page'), code=307)
+    getItem = firebase.getItem(item, user)
+    return render_template('itemShow.html', items = getItem)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
@@ -60,9 +52,12 @@ def login_page():
                 return "not login"
         return "test"
 
-@app.route('/itemDetail', methods=['GET', 'POST'])
-def itemDetail_page():
-    return render_template('itemShow.html', itemPrice = " 100,000원")
+@app.route('/buyItem', methods=['GET', 'POST'])
+def buyItem_page():
+    item = request.form['itemName']
+    user = request.form['itemAuthor']
+    getItem = firebase.getItem(item, user)
+    return render_template('buyItem.html',items = getItem, deliveryPrice=2500, fees=500)
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():

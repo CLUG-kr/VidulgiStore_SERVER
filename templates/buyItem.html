@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/main.css" />
+  <title>비둘기장터</title>
+</head>
+<style>
+     @font-face{
+        font-family: 'BaminHanna';
+        src: {{ url_for('static', filename='font/bamin_hanna.tff')}} format('truetype');
+      }
+
+    section{
+            background-color: #ffffff;
+        }
+    .text{
+        font-size: 2em;
+        color:black;
+    }
+     tr{
+        color:black;
+     }
+</style>
+<body>
+
+  <header style="background-color: #2a3742;">
+    <div class="d_menu" style="padding-left:3%;position:relative;float:left;up:50%;transform:translateY(100%);">
+      <span style="font-size:30px;cursor:pointer;float: left;" onclick="openNav()">&#9776;</span>
+    </div>
+
+    <div class="d_logo" style="position:relative;bottom:50%;transform:translateY(100%);">
+      <img src="/static/image/splash_logo.png" height="100px">
+    </div>
+
+    <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(175%);">
+      <form style="float: left;" class="searchBar" action="/main" method="post">
+        <input class="searchInput" type="text" name="itemSearch"/>
+        <input class="searchButton" TYPE="IMAGE" src="/static/image/splash_btn_search.png" name="submit" value="Submit"  align="absmiddle">
+      </form>
+      <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
+         <input style="margin-left:10px;width:100px;height:50px" class="uploadButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/sell.png') }}">
+      </form>
+    </div>
+  </header>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+
+<section style="height:1000px;padding-top:2%">
+
+{% for item in items %}
+    <div style="margin-left: 3%;margin-right:3%">
+
+        <table   border="1" style="width:100%">
+            <div class="text"style="margin-bottom:1%;margin-top:1%">구매자정보</div>
+            <tr><!-- 첫번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">이름</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyerName"></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr><!-- 두번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">휴대폰 번호</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyerNumber"></td>
+            </tr><!-- 두번째 줄 끝 -->
+            <tr><!-- 두번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">배송지</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyerAddress"></td>
+            </tr><!-- 두번째 줄 끝 -->
+        </table>
+        <div class="text"style="margin-bottom:0.5%;margin-top:2%">구매물건</div>
+        <table border="1" style="width:100%">
+            <tr><!-- 첫번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:100%;height:50px;text-align:left; padding-left:2%">{{ item.author }}의 {{item.name}}</td>
+            </tr><!-- 첫번째 줄 끝 -->
+        </table>
+
+        <div class="text"style="margin-bottom:1%;margin-top:2.5%">결제정보</div>
+        <table  border="1" style="width:100%">
+
+
+
+            <tr><!-- 첫번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">물건가격</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text"name = "buyItemPrice" value={{ item.price }}원></td>
+            </tr><!-- 첫번째 줄 끝 -->
+            <tr><!-- 두번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">수수료</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text"name = "buyItemFee" value={{ fees }}원></td>
+            </tr><!-- 두번째 줄 끝 -->
+            <tr><!-- 두번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">배송비</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyItemDeliveryFee"value={{ deliveryPrice }}원></td>
+            </tr><!-- 두번째 줄 끝 -->
+
+            <tr><!-- 두번째 줄 시작 -->
+                {% set price = item.price | int %}
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">총결제금액</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyItemTotalPrice" value={{price + fees + deliveryPrice}}원></td>
+            </tr><!-- 두번째 줄 끝 -->
+
+            <tr><!-- 두번째 줄 시작 -->
+                <td bgcolor="#eeeeee" style="width:15%;text-align:right; padding-right:2%">입금계좌</td>
+                <td><input class="searchInput" style="margin:5px;width:98%; height:30px" type="text" name = "buyAccount" value = "000-0000000-0000 중앙은행"></td>
+            </tr><!-- 두번째 줄 끝 -->
+        </table>
+    </div>
+
+    <center>
+          <div>
+                <form style="height: 40px;margin:3%" action="/buyItem" method="post">
+                    <input class="uploadButton" style="width:200px" type="submit" value = "취소하기">
+                 </form>
+
+                <form style="margin:3%;height: 40px;" action="/buyItem" method="post">
+                    <input class="uploadButton" style="width:200px" type="submit" value = "결제하기">
+                </form>
+            </div>
+    </center>
+
+{% endfor %}
+</section>
+
+  <!--사이드바-->
+  <!--풋터-->
+  <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+</body>
+</html>
+
+
+

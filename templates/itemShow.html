@@ -50,14 +50,15 @@
   <a href="#">Contact</a>
 </div>
 
+{% for item in items %}
 
 
-
-  <section style="border: 1px solid gold;height:1000px;font-family:'bamin_hanna'; padding-left:3%">
-      <div id="itemName" style="border: 1px solid gold;">
+  <section style="height:1000px;font-family:'bamin_hanna'; padding-left:3%">
+      <div id="itemName">
           <p style="font-size: 2.0em; color:black">{{ item.name }}</p>
       </div>
-      <div id="itemContents" style="border: 1px solid gold;">
+      <div id="itemContents">
+
 
           <div id="itemPhoto" style="width:45%; height:40%;float: left;">
             <img class="itemInfoLayout" style="width:99%; height:99%" src={{ item.picture }} >
@@ -65,13 +66,20 @@
           <div id="itemSubstance" style="margin-left: 50px;float: left;width:45%; height:40%">
               <div>
                   <div class="subtitle" style="font-size: 2.0em;float:left;color:#449957;">₩</div>
-                  <div class="subtitle" style=" font-size: 2.0em;">{{ item.price }}</div>
+                  <div class="subtitle" style=" font-size: 2.0em;float:left;">{{ item.price }}</div>
+                  <div class="subtitle" style=" font-size: 2.0em;">원</div>
               </div>
 
               <div class="subtitle">판매자: {{ item.author }}</div>
               <div class="subtitle">판매 지역: {{ item.location }}</div>
               <div class="subtitle">상품 설명: {{ item.subtitle }}</div>
+              <form style="position: relative;width: 500px;height: 40px;" action="/buyItem" method="post">
+                  <input class="uploadButton" style="width:400px" type="submit" value = "구매하기">
+                  <input style="display:none" name=itemName value = {{ item.name }}>
+                  <input style="display:none" name=itemAuthor value = {{ item.author }}>
+              </form>
           </div>
+  {% endfor %}
       </div>
       <div id="itemSubContents">
 

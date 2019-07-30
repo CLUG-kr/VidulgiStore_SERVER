@@ -66,7 +66,12 @@ body
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
-
+ .uploadButton{
+      border: 0;
+      background: #4478a8;
+      height: 50px;
+      color: #ffffff;
+    }
 /* The navigation menu links */
 .sidenav a {
   padding: 8px 8px 8px 32px;
