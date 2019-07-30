@@ -46,7 +46,7 @@ def login_page():
 
 @app.route('/itemDetail', methods=['GET', 'POST'])
 def itemDetail_page():
-    return render_template('itemShow.html')
+    return render_template('itemShow.html', itemPrice = " 100,000원")
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():
