@@ -1,8 +1,8 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
+from sendNoti import send_fcm
 
 import socket
-import sendNoti
 import firebase
 import firestorage
 
@@ -71,6 +71,8 @@ def successPay_page():
     itemName = request.form['itemName']
     itemAuthor = request.form['itemAuthor']
     getItem = firebase.getItem(itemName, itemAuthor)
+
+    send_fcm(buyerName, itemName)
 
     return buyerName+buyerNumber+itemName+itemAuthor
 
