@@ -33,13 +33,13 @@
   <header>
     <div class = "d_login">
     {% if session_value %}
-    <form style="float:left;" class= "f_login" action="/login" method="get">
+    <form style="float:left;" class= "f_login" action="/logout" method="get">
       <input type="submit" name="login" value="로그인완료">
     </form>
     {% else %}
-    <form style="float:left;" class= "f_login" action="/login" method="get">
-      <input type="submit" name="login" action="login_page()" value="로그인">
-    </form>
+        <form style="float:left;" class= "f_login" action="/login" method="get">
+          <input type="submit" name="login" action="login_page()" value="로그인">
+        </form>
     {% endif %}
     </div>
   </header>
