@@ -55,7 +55,7 @@
 
 
 <section style="height:1000px;padding-top:2%">
-
+ <form  action="/successPay" method="post">
 {% for item in items %}
     <div style="margin-left: 3%;margin-right:3%">
 
@@ -114,18 +114,22 @@
 
     <center>
           <div>
-                <form style="height: 40px;margin:3%" action="/buyItem" method="post">
+                <form style="height: 40px;margin:3%" action="/" method="post">
                     <input class="uploadButton" style="width:200px" type="submit" value = "취소하기">
                  </form>
 
-                <form style="margin:3%;height: 40px;" action="/buyItem" method="post">
-                    <input class="uploadButton" style="width:200px" type="submit" value = "결제하기">
-                </form>
+
+                     <input class="uploadButton" style="width:200px" type="submit" value = "결제하기">
+                     <input style="display:none" name=itemName value = {{ item.name }}>
+                     <input style="display:none" name=itemAuthor value = {{ item.author }}>
+
             </div>
     </center>
 
 {% endfor %}
+ </form>
 </section>
+
 
   <!--사이드바-->
   <!--풋터-->

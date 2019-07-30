@@ -52,6 +52,11 @@ def login_page():
                 return "not login"
         return "test"
 
+@app.route('/logout', methods=['GET', 'POST'])
+def logout_page():
+        session['logged_in'] = False
+        return redirect(url_for('splash_page'), code=307)
+
 @app.route('/buyItem', methods=['GET', 'POST'])
 def buyItem_page():
     item = request.form['itemName']
@@ -59,12 +64,25 @@ def buyItem_page():
     getItem = firebase.getItem(item, user)
     return render_template('buyItem.html',items = getItem, deliveryPrice=2500, fees=500)
 
+@app.route('/successPay', methods=['GET', 'POST'])
+def successPay_page():
+    buyerName = request.form['buyerName']
+    buyerNumber = request.form['buyerNumber']
+    itemName = request.form['itemName']
+    itemAuthor = request.form['itemAuthor']
+    getItem = firebase.getItem(itemName, itemAuthor)
+
+    return buyerName+buyerNumber+itemName+itemAuthor
+
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():
-    if request.method == 'GET':
-        return render_template('ItemUpload.html')
+    if session.get("logged_in"):
+        if request.method == 'GET':
+            return render_template('ItemUpload.html')
+        else :
+            return render_template('ItemUpload.html')
     else :
-        return render_template('ItemUpload.html')
+        return "로그인 먼저 해주세요."
 
 @app.route('/itemUploadCom', methods=['GET', 'POST'])
 def itemUploadCom_page():
