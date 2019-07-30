@@ -42,11 +42,13 @@
       {% for item in items %}
       <div class="d_item" style="background-color: #ffffff;  width: 400px; height: 300px; margin: 20px; float: left;">
         <img style="position: relative; width: 225px;height: 300px;" src="{{item.picture }}">
-        <div style="" class="d_item_info">
-          <div style="height: 20px;">name:{{item.name}}</div>
-          <div style="height: 20px;">price:{{ item.price}}</div>
-          <div style="height: 20px;">author:{{item.author}}</div>
-        </div>
+        <center>
+          <div class="d_item_info">
+            <div>name:{{item.name}}</div>
+            <div>price:{{ item.price}}</div>
+            <div>author:{{item.author}}</div>
+          </div>
+        </center>
       </div>
     {% endfor %}
   </div>
