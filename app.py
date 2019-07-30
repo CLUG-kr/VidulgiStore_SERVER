@@ -2,12 +2,12 @@ from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 
 import socket
+import sendNoti
 import firebase
 import firestorage
 
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-
 
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
