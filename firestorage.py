@@ -13,4 +13,4 @@ def downloadImage(img):
     db = firestore.client()
     bucket = storage.bucket("vidulgi.appspot.com")
     blob = bucket.blob(img)
-    return blob.generate_signed_url(datetime.timedelta(seconds=10), method='GET')
+    return blob.generate_signed_url(datetime.timedelta(seconds=20), method='GET')
