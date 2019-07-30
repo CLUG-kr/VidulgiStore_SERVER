@@ -46,7 +46,7 @@ def login_page():
 
 @app.route('/itemDetail', methods=['GET', 'POST'])
 def itemDetail_page():
-    return render_template('ItemDetail.html')
+    return render_template('itemShow.html')
 
 @app.route('/itemUpload', methods=['GET', 'POST'])
 def itemUpload_page():

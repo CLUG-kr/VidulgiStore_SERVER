@@ -28,15 +28,8 @@ body
     height: 150px;
     width: 99%;
   }
-  nav {
-      background-color: goldenrod;
-  }
   section {
-      background-color: green;
       height : 1000px;
-  }
-  aside {
-      background-color: goldenrod;
   }
   footer {
       height: 50px;
@@ -57,12 +50,7 @@ body
     height: 100px;
   }
 
-  .d_menu {
-    border: 1px solid gold;
-  }
-
   .d_searchBar{
-    border: 1px solid gold;
     float: left;
   }
 
@@ -116,4 +104,29 @@ body
   .sidenav a {font-size: 18px;}
 }
 
+    .searchButton{
+      border: 0;
+      height: 50px;
+    }
+     .searchInput{
+      background: #ffffff;
+      border: 0;
+      height: 50px;
+      width: 750px;
+    }
+    .uploadButton{
+      border: 0;
+      background: #4478a8;
+      height: 50px;
+      color: #ffffff;
+    }
+    .d_item_info{
+      position: absolute;
+      width: 400px;
+      height: 100px;
+      top: 220px;
+      background-color: rgba(0 , 0, 0, 0.7);
 
+    }
+    .d_item_info div{
+    }
