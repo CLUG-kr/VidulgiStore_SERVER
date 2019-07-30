@@ -143,7 +143,7 @@ body
       top: 226px;
       background-color: rgba(0 , 0, 0, 0.7);
     }
-    .d_item_info p{
+    .d_item_info {
       display: table-cell;
       vertical-align: middle;
     }
