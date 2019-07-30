@@ -5,7 +5,7 @@
     <style>
         @font-face{
         font-family: 'BaminHanna';
-        src: url(static/fonts/bamin_hanna.ttf) format('truetype');
+        src: {{ url_for('static', filename='font/bamin_hanna.tff')}} format('truetype');
       }
         .subtitle{
             font-size:1.7em;
@@ -28,13 +28,13 @@
       <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="100px">
     </div>
 
-    <div class = "d_searchBar" style="position:relative;">
+    <div class = "d_searchBar" style="bottom:50%;position:relative;transform:translateY(125%);">
       <form style="float: left;" class="searchBar" action="/main" method="post">
         <input class="searchInput" type="text" name="searchValue"/>
         <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
       </form>
         <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
-        <input class="uploadButton" type="submit" value = "₩판매하기">
+         <input class="uploadButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/sell.png') }}">
       </form>
     </div>
 
@@ -50,7 +50,7 @@
   <a href="#">Contact</a>
 </div>
 
-  <section style="border: 1px solid gold;height:1000px; padding-left:3%">
+  <section style="border: 1px solid gold;height:1000px;font-family:'bamin_hanna'; padding-left:3%">
       <div id="itemName" style="border: 1px solid gold;">
           <p style="font-size: 2.0em; color:black">testtest</p>
       </div>
@@ -60,10 +60,14 @@
             <img class="itemInfoLayout" src="https://steemitimages.com/DQmSFopgNi6uwS9G78HP1DX73VwwAqrTSS2jFLTW7sTH7qX/mystery-box.jpg" style="width:99%; height:99%">
           </div>
           <div id="itemSubstance" style="margin-left: 50px;float: left;border: 1px solid gold; width:45%; height:40%">
-              <p class="subtitle">₩ </p>
-              <p class="subtitle">판매자: </p>
-              <p class="subtitle">판매 지역: </p>
-              <p class="subtitle">상품 설명: </p>
+              <div>
+                  <div class="subtitle" style="font-size: 2.0em;float:left;color:#449957;">₩</div>
+                  <div class="subtitle" style=" font-size: 2.0em;">{{ itemPrice }}</div>
+              </div>
+
+              <div class="subtitle">판매자: </div>
+              <div class="subtitle">판매 지역: </div>
+              <div class="subtitle">상품 설명: </div>
           </div>
 
       </div>

@@ -114,16 +114,18 @@ body
       height: 50px;
       width: 750px;
     }
-    .uploadButton{
-      border: 0;
-      background: #4478a8;
-      height: 50px;
-      color: #ffffff;
-    }
+
     .d_item_info{
       position: absolute;
       width: 400px;
       height: 100px;
       top: 220px;
       background-color: rgba(0 , 0, 0, 0.7);
+
+    }
+    input.img-button {
+    }
+
+    .d_item_info div{
+        width:auto
     }

@@ -18,13 +18,13 @@
       <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="100px">
     </div>
 
-    <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(200%);">
+    <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(175%);">
       <form style="float: left;" class="searchBar" action="/main" method="post">
         <input class="searchInput" type="text" name="searchValue"/>
         <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
       </form>
       <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
-        <input class="uploadButton" type="submit" value = "판매하기">
+        <input class="uploadButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/sell.png') }}">
       </form>
     </div>
   </header>
@@ -41,7 +41,6 @@
   <div style="position:relative;left:50%; transform:translateX(-50%);">
       {% for item in items %}
       <div class="d_item" style="background-color: #ffffff;  width: 400px; height: 300px; margin: 20px; float: left;">
-        <img style="position: relative; width: 225px;height: 300px;" src="{{item.picture }}">
         <div class="d_item_info">
           <center style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
             <div>name:{{item.name}}</div>
@@ -64,6 +63,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+function
 </script>
 
 </body>
