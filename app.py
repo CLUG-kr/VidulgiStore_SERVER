@@ -72,7 +72,7 @@ def successPay_page():
     itemAuthor = request.form['itemAuthor']
     getItem = firebase.getItem(itemName, itemAuthor)
 
-    send_fcm(buyerName, itemName)
+    send_fcm(buyerName, itemName, buyerNumber)
 
     return buyerName+buyerNumber+itemName+itemAuthor
 
