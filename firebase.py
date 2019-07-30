@@ -5,7 +5,6 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import firestorage
 
-
 cred = credentials.Certificate("vidulgi-firebase-adminsdk-yxed3-b7f4229719.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
