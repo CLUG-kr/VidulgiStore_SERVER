@@ -8,6 +8,9 @@ import firestorage
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
+user = "123"
+itemName = "123"
+
 @app.route('/', methods=['GET', 'POST'])
 def splash_page():
     if request.method == 'GET':
@@ -29,6 +32,9 @@ def main_page():
     else :
         return render_template("main.html", items=[])
 
+@app.route('/'+user+itemName, methods=['GET', 'POST'])
+def itemShow_page():
+    return "test";
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
@@ -65,9 +71,12 @@ def itemUploadCom_page():
         itemPhoto = request.files['itemPhoto']
         itemDetail = request.form['itemDetail']
 
-        itemPhoto.save(secure_filename(itemSeller+itemName+'.png'))
-        firestorage.uploadFile(itemSeller+itemName+'.png')
-        firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, itemSeller+itemName+'.png')
+        print(itemName)
+        print("test")
+        fileName = itemSeller+str(hash(itemName))+'.png'
+        itemPhoto.save(secure_filename(fileName))
+        firestorage.uploadFile(fileName)
+        firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, fileName)
 
         return redirect(url_for('splash_page'), code=307)
 

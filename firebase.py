@@ -31,7 +31,7 @@ def itemSearch(searchInput):
     result = db.collection(u'Items').get()
     for x in result:
         currentData = x.to_dict()
-        if currentData.get('name') == searchInput:
+        if searchInput in currentData.get('name'):
             currentData['picture'] = firestorage.downloadImage(currentData.get('picture'))
             print(currentData['picture'])
             resultList.append(currentData)
