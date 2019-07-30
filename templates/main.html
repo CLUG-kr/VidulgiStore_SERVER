@@ -39,10 +39,10 @@
 
 <section style="height:1000px">
   <div style="position:relative;left:50%; transform:translateX(-50%);">
-    {% for item in items %}
+      {% for item in items %}
       <div class="d_item" style="background-color: #ffffff;  width: 400px; height: 300px; margin: 20px; float: left;">
+        <img style="position: relative; width: 225px;height: 300px;" src="{{item.picture }}">
         <div class="d_item_info">
-          <img style="position: relative; width: 225px;height: 300px;" src="{{item.picture }}">
           <center style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);">
             <div>name:{{item.name}}</div>
             <div>price:{{item.price}}</div>
@@ -53,6 +53,7 @@
     {% endfor %}
   </div>
 </section>
+
   <!--사이드바-->
   <!--풋터-->
   <footer>footer</footer>
