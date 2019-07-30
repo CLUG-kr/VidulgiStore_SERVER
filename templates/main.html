@@ -6,54 +6,32 @@
   <link rel="stylesheet" href="static/css/main.css" />
   <title>아주 간단한 HTML 문서 예</title>
   <style>
-    .searchInput{
-      background: #ffffff;
-      border: 0;
-      height: 50px;
-      width: 750px;
-    }
-    .searchButton{
-      border: 0;
-      height: 50px;
-    }
-    .uploadButton{
-      border: 0;
-      background: #4478a8;
-      height: 50px;
-      color: #ffffff;
-    }
-    .d_item_info{
-      display: table;
-      position: absolute;
-      width: 400px;
-      top: 226px;
-      background-color: rgba(0 , 0, 0, 0.7);
-    }
-    .d_item_info p{
-      display: table-cell;
-      vertical-align: middle;
-    }
+
   </style>
 </head>
 <body>
 
   <header style="background-color: #2a3742;">
-    <div class="d_menu" style="float: left;">
+
+    <div class="d_menu" style="position:relative;float:left;up:50%;transform:translateY(100%);">
       <span style="font-size:30px;cursor:pointer;float: left;" onclick="openNav()">&#9776;</span>
     </div>
-    <div class="d_logo">
+
+    <div class="d_logo" style="position:relative;bottom:50%;transform:translateY(100%);">
       <img src="{{ url_for('static', filename='image/splash_logo.png') }}" height="100px">
     </div>
 
-    <div class = "d_searchBar">
+    <div class = "d_searchBar" style="position:relative;bottom:50%;transform:translateY(200%);">
       <form style="float: left;" class="searchBar" action="/main" method="post">
         <input class="searchInput" type="text" name="searchValue"/>
         <input class="searchButton" TYPE="IMAGE" src="{{ url_for('static', filename='image/splash_btn_search.png') }}" name="Submit" value="Submit"  align="absmiddle">
       </form>
-    </div>
-      <form style="float:left;" action="/itemUpload" method="post">
+        <form style="float: left;position:relative;bottom:50%;float:left;" action="/itemUpload" method="post">
         <input class="uploadButton" type="submit" value = "판매하기">
       </form>
+    </div>
+
+
   </header>
 
  <div id="mySidenav" class="sidenav">
