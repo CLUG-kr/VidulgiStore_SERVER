@@ -1,10 +1,12 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
+from PIL import Image
 from sendNoti import send_fcm
 
 import socket
 import firebase
 import firestorage
+
 
 app = Flask(__name__)
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
@@ -101,6 +103,13 @@ def itemUploadCom_page():
         print("test")
         fileName = itemSeller+str(hash(itemName))+'.png'
         itemPhoto.save(secure_filename(fileName))
+
+        image = Image.open(fileName)
+
+        resize_image = image.resize((640, 480))
+
+        resize_image.save(fileName)
+
         firestorage.uploadFile(fileName)
         firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, fileName)
 
