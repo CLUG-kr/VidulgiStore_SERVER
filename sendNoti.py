@@ -14,7 +14,7 @@ def send_fcm(seller, item, number):
 		"notification": {
 			"title": seller,
 			"body": item + ":" + number,
-			"content_available": "true"
+			"click_action": ".BuyerInfoActivity"
 		},
 		"to": "/topics/WantBuy"
 	}
