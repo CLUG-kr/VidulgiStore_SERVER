@@ -12,8 +12,8 @@ def send_fcm(seller, item, number):
 			"number": number
 		},
 		"notification": {
-			"title": seller,
-			"body": item + ":" + number,
+			"title": "비둘기장터",
+			"body": seller + "님이 " + item + "을(를) 구매하고 싶어합니다.",
 			"click_action": ".BuyerInfoActivity"
 		},
 		"to": "/topics/WantBuy"
