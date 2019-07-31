@@ -103,12 +103,6 @@ def itemUploadCom_page():
         fileName = itemSeller+str(hash(itemName))+'.png'
         itemPhoto.save(secure_filename(fileName))
 
-        image = Image.open(fileName)
-
-        resize_image = image.resize((640, 480))
-
-        resize_image.save(fileName)
-
         firestorage.uploadFile(fileName)
         firebase.uploadItem(itemName, itemPrice, itemLocation, itemSeller, itemDetail, fileName)
 
